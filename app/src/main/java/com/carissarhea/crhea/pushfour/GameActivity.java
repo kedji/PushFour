@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class GameActivity extends Activity
-        implements View.OnClickListener, BoardView.Listener {
+        implements View.OnClickListener {
 
     int mPlayers;
     BoardView boardView;
@@ -22,7 +22,7 @@ public class GameActivity extends Activity
         mPlayers = intent.getIntExtra("players", 1);
 
         boardView = (BoardView) findViewById(R.id.bview);
-        boardView.setListener(this);
+        boardView.setOwner(this);
 
         findViewById(R.id.btn_new_game).setOnClickListener(this);
     }
