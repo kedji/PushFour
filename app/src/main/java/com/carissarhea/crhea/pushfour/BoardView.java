@@ -12,14 +12,9 @@ import android.view.View;
 public class BoardView extends View {
     private int tileSize;
     private int offset;
+    private GameActivity gameActivity;   // our owner
 
-    public interface Listener {
-        void gameEnded(String winningPlayer);
-    }
-
-    private Listener listener;
-
-    public void setListener(Listener listener) { this.listener = listener; }
+    public void setOwner(gameActivity ga) { this.gameActivity = ga; }
 
     public BoardView(Context context) {
         super(context);
@@ -73,7 +68,7 @@ public class BoardView extends View {
                 // Finalize move
                 GameService.getInstance().setMove(x, y, color);
                 if (GameService.getInstance().endOfGame) {
-                    listener.gameEnded(GameService.getInstance().winningPlayer);
+                    gameActivity.gameEnded(GameService.getInstance().winningPlayer);
                 }
                 invalidate(); // redraw canvas
 
