@@ -14,7 +14,7 @@ public class BoardView extends View {
     private int offset;
     private GameActivity gameActivity;   // our owner
 
-    public void setOwner(gameActivity ga) { this.gameActivity = ga; }
+    public void setOwner(GameActivity ga) { this.gameActivity = ga; }
 
     public BoardView(Context context) {
         super(context);

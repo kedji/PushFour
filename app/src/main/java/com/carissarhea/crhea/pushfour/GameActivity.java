@@ -27,20 +27,6 @@ public class GameActivity extends Activity
         findViewById(R.id.btn_new_game).setOnClickListener(this);
     }
 
-    /**
-     * BoardView callback for when the game has ended.
-     */
-    @Override
-    public void gameEnded(String winningPlayer) {
-        Button btn = (Button) findViewById(R.id.btn_new_game);
-        btn.setVisibility(View.VISIBLE);
-
-        TextView textView = (TextView) findViewById(R.id.txt_winner);
-        String winner = winningPlayer + " has won!";
-        textView.setText(winner);
-        textView.setVisibility(View.VISIBLE);
-    }
-
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
@@ -57,4 +43,18 @@ public class GameActivity extends Activity
                 break;
         }
     }
+
+    /**
+     * BoardView callback for when the game has ended.
+     */
+    public void gameEnded(String winningPlayer) {
+        Button btn = (Button) findViewById(R.id.btn_new_game);
+        btn.setVisibility(View.VISIBLE);
+
+        TextView textView = (TextView) findViewById(R.id.txt_winner);
+        String winner = winningPlayer + " has won!";
+        textView.setText(winner);
+        textView.setVisibility(View.VISIBLE);
+    }
+
 }
