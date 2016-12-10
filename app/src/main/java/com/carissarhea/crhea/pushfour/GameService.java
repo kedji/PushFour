@@ -70,10 +70,8 @@ public class GameService {
      * to show where a final move would land.
      */
     public void setPreview(int x, int y, int color) {
-        if ((x == 0 && y > 0 && y < 11)
-                || (y == 0 && x > 0 && x < 11)
-                || (x == 11 && y > 0 && y < 11)
-                || (y == 11 && x > 0 && x < 11)) {
+        if (((x == 0 || x == 11) && y > 0 && y < 11) ||
+            ((y == 0 || y == 11) && x > 0 && x < 11)) {
             //TODO: Animate to final position
 
             // Place preview piece on border square
@@ -104,7 +102,7 @@ public class GameService {
         int lY = -1;
         if (x == 0) {
             // Walk right
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 11; i++) {
                 if ( boardPositions[i+1][y] != Color.WHITE ) {
                     lX = i;
                     lY = y;
@@ -113,7 +111,7 @@ public class GameService {
             }
         } else if (y == 0) {
             // Walk down
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 11; i++) {
                 if ( boardPositions[x][i+1] != Color.WHITE ) {
                     lX = x;
                     lY = i;
@@ -122,7 +120,7 @@ public class GameService {
             }
         } else if (x == 11) {
             // Walk left
-            for (int i = 11; i > 1; i--) {
+            for (int i = 11; i > 0; i--) {
                 if ( boardPositions[i-1][y] != Color.WHITE ) {
                     lX = i;
                     lY = y;
@@ -131,7 +129,7 @@ public class GameService {
             }
         } else if (y == 11) {
             // Walk up
-            for (int i = 11; i > 1; i--) {
+            for (int i = 11; i > 0; i--) {
                 if (boardPositions[x][i-1] != Color.WHITE ) {
                     lX = x;
                     lY = i;
