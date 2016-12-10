@@ -1,0 +1,6 @@
+.gradle/*
+.idea/*
+PushFour.iml
+app/app.iml
+build/*
+local.properties
